@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class Controller1 {
+public class Controller1{
 
     @GetMapping("/greeting/{name}")
     public String displayName(@PathVariable String name){
