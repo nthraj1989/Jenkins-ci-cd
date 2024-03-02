@@ -10,6 +10,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import java.util.Arrays;
+import java.util.List;
+
 @WebMvcTest(Controller1.class)
 class DemoApplicationTests {
 
@@ -24,6 +27,13 @@ class DemoApplicationTests {
                 .andExpect(MockMvcResultMatchers.status().isOk())
                 .andExpect(MockMvcResultMatchers.content().string("Hello" + name + "Congratulation you have successfully completed Jenkins CI/CD"));
     }
+	@Test
+	public void findAllUsersEndPoint() throws Exception{
+		List<String> name = Arrays.asList("Rajnish", "Shyam," ,"Mangal");
+		mockMvc.perform(MockMvcRequestBuilders.get("/api/users"))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().string(name.get(0)));
+	}
 
 }
 
