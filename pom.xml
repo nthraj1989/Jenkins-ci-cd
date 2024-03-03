@@ -44,5 +44,4 @@
 		</plugins>
         <finalName>jenkins-ci-cd</finalName>
 	</build>
-
 </project>
